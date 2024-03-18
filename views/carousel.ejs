@@ -1,0 +1,23 @@
+<section class="carousel--component">
+    <h1>Boeken</h1>
+    <div class="carousel">
+        <% if(data.item_type != "book"){ %>
+            <% data.forEach(book => { %>
+                <div class="card" >
+                    <div class="upper-card">
+                        <img src="https://fdnd-agency.directus.app/assets/<%= book.afbeelding %>" alt="">
+                    </div>
+                    <div class="lower-card">
+                        <a href= "/detail/<%= book.id %>"> <%= book.title %></a>
+                    </div>
+                </div>
+              <% }) %>
+          <% } else{ %>  
+            <h1>bar</h1>
+         <% } %>   
+    </div>
+    <div class="carousel--buttons">
+        <button class="next">previous</button>
+        <button class="previous">next</button>
+    </div>
+</section>

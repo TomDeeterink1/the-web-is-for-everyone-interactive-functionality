@@ -1,0 +1,98 @@
+<%- include('./partials/head') %>
+
+<section class="carousel--component">
+    <h2>Boeken</h2>
+    <ul class="carousel">
+        <% data.forEach(book => { %>
+            <% if(book.item_type == "book") { %>
+                <li class="card" >
+                    <div class="upper-card">
+                        <img src="https://fdnd-agency.directus.app/assets/<%= book.afbeelding %>" alt="">
+                    </div>
+                    <div class="lower-card">
+                        <a href= "/detail/<%= book.id %>"> <%= book.title %></a>
+                    </div>
+                </li>  
+                <% } %>
+                <% }) %> 
+            </ul>
+    <div class="carousel--buttons">
+        <button class="next">previous</button>
+        <button class="previous">next</button>
+    </div>
+</section>
+<section class="carousel--component">
+    <h2>CD's</h2>
+    <ul class="carousel">
+        <% data.forEach(cd => { %>
+            <% if(cd.item_type == "cd") { %>
+                <li class="card" >
+                    <div class="upper-card">
+                        <img src="https://fdnd-agency.directus.app/assets/<%= cd.afbeelding %>" alt="">
+                    </div>
+                    <div class="lower-card">
+                        <a href= "/detail/<%= cd.id %>"> <%= cd.title %></a>
+                    </div>
+                </li>  
+                <% } %>
+                <% }) %> 
+            </ul>
+    <div class="carousel--buttons">
+        <button class="next">previous</button>
+        <button class="previous">next</button>
+    </div>
+</section>
+<section class="carousel--component">
+    <h2>Activiteiten</h2>
+    <ul class="carousel">
+        <% data.forEach(activity => { %>
+            <% if(activity.item_type == "activity") { %>
+                <li class="card" >
+                    <div class="upper-card">
+                        <img src="https://fdnd-agency.directus.app/assets/<%= activity.afbeelding %>" alt="">
+                    </div>
+                    <div class="lower-card">
+                        <a href= "/detail/<%= activity.id %>"> <%= activity.title %></a>
+                    </div>
+                </li>  
+                <% } %>
+                <% }) %> 
+            </ul>
+    <div class="carousel--buttons">
+        <button class="next">previous</button>
+        <button class="previous">next</button>
+    </div>
+</section>
+<script>
+    document.querySelectorAll('.carousel--component').forEach(component => {
+        const carousel = component.querySelector('.carousel');
+        const nextButton = component.querySelector('.next');
+        const previousButton = component.querySelector('.previous');
+        const articles = carousel.querySelectorAll('.card');
+
+        nextButton.addEventListener('click', () => scrollCarousel(carousel, articles, -1));
+        previousButton.addEventListener('click', () => scrollCarousel(carousel, articles, 1));
+
+        function scrollCarousel(container, articles, direction) {
+            const articleWidth = articles[0].clientWidth; // Assuming all articles have the same width
+            const scrollAmount =  articleWidth + 32;
+            const currentScrollPosition = container.scrollLeft;
+
+            let targetScrollPosition;
+            if (direction === 1) {
+                targetScrollPosition = currentScrollPosition + scrollAmount;
+            } else {
+                targetScrollPosition = currentScrollPosition - scrollAmount;
+                if (targetScrollPosition < 0) { // Adjust for scrolling back beyond the start
+                    targetScrollPosition = 0;
+                }
+            }
+
+            container.scrollTo({
+                left: targetScrollPosition,
+                behavior: 'smooth',
+            });
+        }
+    });
+</script>
+<%- include('./partials/food') %>

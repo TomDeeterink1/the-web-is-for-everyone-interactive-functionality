@@ -1,0 +1,119 @@
+.full--detail{
+    padding-top: var(--extra-large);
+    padding-left: var(--extra-large);
+    max-width: 1400px;
+    margin: 0 auto;
+    scroll-snap-type: proximity;
+    scroll-snap-align: left;
+
+    & #goback{
+        text-decoration: none;
+        color: var(--primary);
+
+        &:hover{
+            color: var(--primary-color);
+        }
+    }
+
+    & .detail--text-image{
+        padding-top: var(--extra-large);
+        display: flex;
+        flex-direction: row;
+        gap: var(--extra-large);
+
+        & figure{
+
+            & img{
+                height: 600px;
+                border-radius: var(--extra-small);
+            }
+        }
+
+        & article{
+            display: flex;
+            flex-direction: column;
+            gap: var(--medium);
+
+            & h1{
+                font-size: 38px;
+                max-width: 600px;
+            }
+
+            & .text-image--category{
+                list-style-type: none;
+                padding-inline-start: 0px;
+                display: flex;
+                flex-direction: row;
+                gap: var(--medium);
+
+                & li{
+                    color: var(--primary-color);
+                }
+            }
+
+            & p{
+                max-width: 600px;
+                font-weight: 200 !important;
+            }
+
+            & div{
+                padding-top: var(--medium);
+                display: flex;
+                flex-direction:  row;
+                gap: var(--medium);
+            }
+
+            & .text-image--details{
+                list-style-type: none;
+                padding-inline-start: 0px;
+                display: flex;
+                flex-direction: column;
+                gap: var(--medium);
+                & li{
+                    color: var(--text-color);
+                }
+            }
+        }
+    }
+}
+
+#carousel-detail {
+    padding-left: var(--small);
+}
+@media screen and (min-width: 600px) and (max-width:1200px) {
+
+}
+@media screen and (min-width: 0px) and (max-width: 600px){
+    .full--detail{
+        padding: var(--medium);
+        padding-top: 100px;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        & .detail--text-image{
+            padding-top: var(--large);
+            display: flex;
+            flex-direction: column;
+            gap: var(--medium);
+
+            & figure{
+
+                & img{
+                    height: 300px;
+                    border-radius: var(--extra-small);
+                }
+            }
+            & article{
+                display: flex;
+                flex-direction: column;
+                gap: var(--medium);
+                
+                & h1{
+                    font-size: 38px;
+                }
+            }
+        }
+    }
+}

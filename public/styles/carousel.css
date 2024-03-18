@@ -1,0 +1,110 @@
+.carousel--component{
+    display: flex;
+    flex-direction: column;
+    gap: var(--large);
+    padding: var(--large);
+    padding-left: var(--extra-large);
+    max-width: 1400px;
+    margin: 0 auto;
+    scroll-snap-type: proximity;
+    scroll-snap-align: left;
+    
+    & .carousel{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: var(--large);
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        padding: var(--large)  var(--medium);
+        height: max-content;
+        border-radius: var(--small);
+
+        & .card{
+            width: 300px;
+            padding: var(--none);
+            border-radius: var(--small);
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+            transition: ease-out 0.1s;
+
+            &:hover{
+                box-shadow: 2px 2px 2px rgba(238, 7, 7, 1);
+                transition: ease-in 0.1s;
+                cursor: pointer;
+                transform: scale(102%);
+    
+                & a{
+                    color: var(--secondary);
+                    transition: ease-in 0.1s;
+                }
+            }
+            & .upper-card{
+                padding: var(--none);
+                & img{
+                    width: 300px;
+                    height: 300px;
+                    object-fit: contain;
+                    border-radius: 4px 4px 0px 0px;
+                }
+            }
+
+            & .lower-card{
+                padding: var(--medium);
+                & a{
+                    font-size: 1.2em;
+                    font-weight: 600;
+                    font-family: Arial, Helvetica, sans-serif;
+                    text-decoration: none;
+                    color: var(--primary);
+                    transition: ease-out 0.1s;
+                }
+                &:hover>a{
+                    color: var(--secondary);
+                    transition: ease-in 0.1s;
+                }
+            }
+        }
+    }
+
+    & .carousel--buttons{
+        display: flex;
+        flex-direction: row;
+        gap: var(--small);
+
+        & button{
+            padding: var(--buttons);
+            font-size: 1em;
+            background-color: white;
+            border-radius: var(--button);
+            transition: ease-out 0.1s;
+            transform: scale(100%);
+            border: 2px solid var(--primary);
+
+            &:hover{
+                cursor: pointer;
+                color: var(--secondary);
+                transition: ease-in 0.1s;
+                transform: scale(94%);
+                border: 2px solid var(--secondary);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width:1200px) {
+    .carousel--component{
+        padding-left: 140px ;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px){
+    .carousel--component{
+        padding: var(--medium);
+        padding-top: 100px;
+
+        & .carousel{
+            padding-left: var( --extra-small);
+        }
+       
+    }
+}

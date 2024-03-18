@@ -1,0 +1,58 @@
+<%- include('./partials/head') %>
+<div class="full--detail">
+    <a id="goback" href="/"> ☇ Terug naar home </a>
+    <section class="detail--text-image">
+        <figure>
+            <img src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>" alt="">
+        </figure>
+        <article>
+            <h1> <%= items.title %></h1>    
+            <ul class="text-image--category">
+                <li><%= items.language %></li>
+                <li><%= items.characteristics %></li>
+                <li><%= items.auteur %></li>
+            </ul>
+            <p> <%- items.description %> </p>
+            <div>
+                <a class="link link-primary">Item huren</a>
+                <a class="link link-secondary">Toevoegen aan mijn lijst</a>
+            </div>
+            <ul class="text-image--details">
+                <li><%= items.genre %></li>
+                <li><%= items.publisher %></li>
+                <li><%= items.ISBN %></li>
+                <li><%= items.pica_number %></li>
+                <li><%= items.editie %></li>
+                <li><%= items.datetime %></li>
+                <li><%= items.price %></li>
+                <li><%= items.location %></li>
+            </ul>
+        </article>
+    </section>
+    <section id="carousel-detail" class="carousel--component">
+        <h2>Boeken</h2>
+        <% if (items && items.length) { %>
+            <ul class="carousel">
+                <% items.forEach(item => { %>
+                    <% if (item.item_type === "book") { %>
+                        <li class="card">
+                            <div class="upper-card">
+                                <img src="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>" alt="">
+                            </div>
+                            <div class="lower-card">
+                                <a href="/detail/<%= item.id %>"><%= item.title %></a>
+                            </div>
+                        </li>
+                    <% } %>
+                <% }) %>
+                    </ul>
+        <% } else { %>
+            <p>No items found.</p>
+        <% } %>
+        <div class="carousel--buttons">
+            <button class="next">previous</button>
+            <button class="previous">next</button>
+        </div>
+    </section>
+</div>
+<%- include('./partials/food') %>
