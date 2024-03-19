@@ -15,7 +15,12 @@
             <p> <%- items.description %> </p>
             <div>
                 <a class="link link-primary">Item huren</a>
-                <a class="link link-secondary">Toevoegen aan mijn lijst</a>
+                <a id="add" class="link link-secondary">Toevoegen aan mijn lijst</a>
+                <form action="/detail/<%= items.id %>" method="POST">
+                    <input type="hidden" name="carousel" value="<%= items.id %>">
+                    <button type="submit">Toevoegen aan mijn lijst</button>
+                </form>
+                
             </div>
             <ul class="text-image--details">
                 <li><%= items.genre %></li>
@@ -31,28 +36,23 @@
     </section>
     <section id="carousel-detail" class="carousel--component">
         <h2>Boeken</h2>
-        <% if (items && items.length) { %>
-            <ul class="carousel">
-                <% items.forEach(item => { %>
-                    <% if (item.item_type === "book") { %>
-                        <li class="card">
-                            <div class="upper-card">
-                                <img src="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>" alt="">
-                            </div>
-                            <div class="lower-card">
-                                <a href="/detail/<%= item.id %>"><%= item.title %></a>
-                            </div>
-                        </li>
-                    <% } %>
-                <% }) %>
-                    </ul>
-        <% } else { %>
-            <p>No items found.</p>
-        <% } %>
+        <ul class="carousel">
+            <% favorieten.forEach(favoriet => { %>
+                <li class="card">
+                    <div class="upper-card">
+                        <img src="https://fdnd-agency.directus.app/assets/<%= favoriet.afbeelding %>" alt="">
+                    </div>
+                    <div class="lower-card">
+                        <a href="<%= favoriet.id %>"><%= favoriet.title %></a>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
         <div class="carousel--buttons">
             <button class="next">previous</button>
             <button class="previous">next</button>
         </div>
     </section>
 </div>
+
 <%- include('./partials/food') %>
