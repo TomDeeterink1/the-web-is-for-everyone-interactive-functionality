@@ -15,7 +15,6 @@
             <p> <%- items.description %> </p>
             <div>
                 <a class="link link-primary">Item huren</a>
-                <a id="add" class="link link-secondary">Toevoegen aan mijn lijst</a>
                 <form action="/detail/<%= items.id %>" method="POST">
                     <input type="hidden" name="carousel" value="<%= items.id %>">
                     <button type="submit">Toevoegen aan mijn lijst</button>
@@ -35,7 +34,7 @@
         </article>
     </section>
     <section id="carousel-detail" class="carousel--component">
-        <h2>Boeken</h2>
+        <h2>Favorieten boeken</h2>
         <ul class="carousel">
             <% favorieten.forEach(favoriet => { %>
                 <li class="card">
