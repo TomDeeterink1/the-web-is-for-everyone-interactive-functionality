@@ -30,6 +30,21 @@ app.get('/', function (request, response) {
   response.render('index', data)
 })
 
+// Maak een GET route voor de index
+app.get('/', function (request, response) {
+  // Render index.ejs uit de views map en geef uit FDND API opgehaalde data mee
+  response.render('index', data)
+})
+
+// Maak een GET route voor de index
+app.get('/familyoverview/', function (request, response) {
+  fetchJson(`https://fdnd-agency.directus.app/items/oba_profile`)
+        .then((items) => {
+            response.render('familyoverview', { items: items.data});
+        })
+  
+})
+
 const favorieten = [];
 
 // GET route for a detail page with a request parameter id

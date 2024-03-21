@@ -1,0 +1,8 @@
+.wrapper{
+    padding-top: var(--extra-large);
+    padding-left: var(--extra-large);
+    max-width: 1400px;
+    margin: 0 auto;
+    scroll-snap-type: proximity;
+    scroll-snap-align: left;
+}

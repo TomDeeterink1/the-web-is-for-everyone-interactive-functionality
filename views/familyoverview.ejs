@@ -1,0 +1,18 @@
+<%- include('./partials/head') %>
+<div class="wrapper">
+    <section class="family-overview--intro">
+        <h1> Familie overzicht </h1>
+        <div class="statistics">
+            <% items.forEach(item => { %>
+                    <p> <%= item.name %> </p>
+                    <% }) %> 
+        </div>
+    </section>
+    <section class="family-overview--stats">
+        
+    </section>
+</div>
+
+
+
+<%- include('./partials/food') %>

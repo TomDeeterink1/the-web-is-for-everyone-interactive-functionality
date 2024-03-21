@@ -17,7 +17,7 @@
                 <a class="link link-primary">Item huren</a>
                 <form action="/detail/<%= items.id %>" method="POST">
                     <input type="hidden" name="carousel" value="<%= items.id %>">
-                    <button type="submit">Toevoegen aan mijn lijst</button>
+                    <button class="link link-secondary" type="submit">Toevoegen aan mijn lijst</button>
                 </form>
                 
             </div>
@@ -34,7 +34,7 @@
         </article>
     </section>
     <section id="carousel-detail" class="carousel--component">
-        <h2>Favorieten boeken</h2>
+        <h2>Favorieten items</h2>
         <ul class="carousel">
             <% favorieten.forEach(favoriet => { %>
                 <li class="card">
@@ -53,5 +53,38 @@
         </div>
     </section>
 </div>
+
+<script>
+    document.querySelectorAll('.carousel--component').forEach(component => {
+        const carousel = component.querySelector('.carousel');
+        const nextButton = component.querySelector('.next');
+        const previousButton = component.querySelector('.previous');
+        const articles = carousel.querySelectorAll('.card');
+
+        nextButton.addEventListener('click', () => scrollCarousel(carousel, articles, -1));
+        previousButton.addEventListener('click', () => scrollCarousel(carousel, articles, 1));
+
+        function scrollCarousel(container, articles, direction) {
+            const articleWidth = articles[0].clientWidth; // Assuming all articles have the same width
+            const scrollAmount =  articleWidth + 32;
+            const currentScrollPosition = container.scrollLeft;
+
+            let targetScrollPosition;
+            if (direction === 1) {
+                targetScrollPosition = currentScrollPosition + scrollAmount;
+            } else {
+                targetScrollPosition = currentScrollPosition - scrollAmount;
+                if (targetScrollPosition < 0) { // Adjust for scrolling back beyond the start
+                    targetScrollPosition = 0;
+                }
+            }
+
+            container.scrollTo({
+                left: targetScrollPosition,
+                behavior: 'smooth',
+            });
+        }
+    });
+</script>
 
 <%- include('./partials/food') %>

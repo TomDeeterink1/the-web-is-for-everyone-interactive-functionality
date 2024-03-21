@@ -61,6 +61,10 @@
                 display: flex;
                 flex-direction:  row;
                 gap: var(--medium);
+                
+                & button{
+                    border: none;
+                }
             }
 
             & .text-image--details{
