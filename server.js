@@ -40,10 +40,25 @@ app.get('/', function (request, response) {
 app.get('/familyoverview/', function (request, response) {
   fetchJson(`https://fdnd-agency.directus.app/items/oba_profile`)
         .then((items) => {
-            response.render('familyoverview', { items: items.data});
+            response.render('familyoverview', { items: items.data ,  selectedItem: items.data});
         })
   
 })
+
+// POST route 
+app.post('/familyoverview/', function (request, response) {
+  const itemId = request.body.carousel; // De ID van de geselecteerde persoon ophalen vanuit het formulier
+  fetchJson(`https://fdnd-agency.directus.app/items/oba_profile/${itemId}`)
+      .then((item) => {
+          fetchJson(`https://fdnd-agency.directus.app/items/oba_profile`) // Fetch alle items opnieuw
+          .then((items) => {
+              response.render('familyoverview', { 
+                  items: items.data,
+                  selectedItem: item.data // De geselecteerde persoon data doorsturen naar de sjabloon
+              });
+          })
+      })
+});
 
 const favorieten = [];
 

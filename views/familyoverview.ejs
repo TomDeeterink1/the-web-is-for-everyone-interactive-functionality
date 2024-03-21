@@ -2,17 +2,28 @@
 <div class="wrapper">
     <section class="family-overview--intro">
         <h1> Familie overzicht </h1>
-        <div class="statistics">
+        <h3> Bekijk de overzichten van:</h3>
+        <div class="users">
             <% items.forEach(item => { %>
-                    <p> <%= item.name %> </p>
-                    <% }) %> 
+                <form action="/familyoverview/" method="POST">
+                    <input type="hidden" name="carousel" value="<%= item.id %>">
+                    <button type="submit"> <%= item.name %> </button>
+                </form>
+            <% }) %> 
         </div>
     </section>
-    <section class="family-overview--stats">
-        
+
+    <section class="stats">
+        <% if(selectedItem) { %>
+            <h2> <%= selectedItem.name %> </h2>
+            <p> <%= selectedItem.adress %> </p>
+            <p> <%= selectedItem.postal_code %> </p>
+            <p> <%= selectedItem.city %> </p>
+            <p> <%= selectedItem.phonenumber %> </p>
+            <p> <%= selectedItem.email %> </p>      
+        <% } else { %>
+            <p>Selecteer een persoon om details weer te geven.</p>
+        <% } %>
     </section>
 </div>
-
-
-
 <%- include('./partials/food') %>
