@@ -65,7 +65,7 @@ app.post('/detail/:id', function (request, response) {
 app.get('/familyoverview/', function (request, response) {
   fetchJson(`https://fdnd-agency.directus.app/items/oba_profile`)
         .then((items) => {
-            response.render('familyoverview', { items: items.data ,  selectedItem: items.data});
+            response.render('familyoverview', { items: items.data ,  selectedItem: items.data , favorieten: favorieten});
         })
   
 })
