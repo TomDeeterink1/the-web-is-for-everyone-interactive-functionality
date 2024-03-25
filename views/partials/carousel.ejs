@@ -1,0 +1,52 @@
+<section id="carousel-detail" class="carousel--component">
+    <h3>Favorieten items</h3>
+    <ul class="carousel">
+        <% favorieten.forEach(favoriet => { %>
+            <li class="card">
+                <div class="upper-card">
+                    <img src="https://fdnd-agency.directus.app/assets/<%= favoriet.afbeelding %>" alt="">
+                </div>
+                <div class="lower-card">
+                    <a href="<%= favoriet.id %>"><%= favoriet.title %></a>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+    <div class="carousel--buttons">
+        <button class="next">previous</button>
+        <button class="previous">next</button>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.carousel--component').forEach(component => {
+        const carousel = component.querySelector('.carousel');
+        const nextButton = component.querySelector('.next');
+        const previousButton = component.querySelector('.previous');
+        const articles = carousel.querySelectorAll('.card');
+
+        nextButton.addEventListener('click', () => scrollCarousel(carousel, articles, -1));
+        previousButton.addEventListener('click', () => scrollCarousel(carousel, articles, 1));
+
+        function scrollCarousel(container, articles, direction) {
+            const articleWidth = articles[0].clientWidth; // Assuming all articles have the same width
+            const scrollAmount =  articleWidth + 32;
+            const currentScrollPosition = container.scrollLeft;
+
+            let targetScrollPosition;
+            if (direction === 1) {
+                targetScrollPosition = currentScrollPosition + scrollAmount;
+            } else {
+                targetScrollPosition = currentScrollPosition - scrollAmount;
+                if (targetScrollPosition < 0) { // Adjust for scrolling back beyond the start
+                    targetScrollPosition = 0;
+                }
+            }
+
+            container.scrollTo({
+                left: targetScrollPosition,
+                behavior: 'smooth',
+            });
+        }
+    });
+</script>

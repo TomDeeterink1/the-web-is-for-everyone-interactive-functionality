@@ -15,15 +15,29 @@
 
     <section class="stats">
         <% if(selectedItem) { %>
+
             <h2> <%= selectedItem.name %> </h2>
-            <p> <%= selectedItem.adress %> </p>
-            <p> <%= selectedItem.postal_code %> </p>
-            <p> <%= selectedItem.city %> </p>
-            <p> <%= selectedItem.phonenumber %> </p>
-            <p> <%= selectedItem.email %> </p>      
+            <div class="user--info">
+                <ul class="before">
+                    <li> Adres </li>
+                    <li> Postcode </li>
+                    <li> Plaats </li>
+                    <li> Telefoon </li>
+                    <li> Email </li>
+                </ul>  
+                <ul>
+                    <li> <%= selectedItem.adress %></li>
+                    <li> <%= selectedItem.postal_code %></li>
+                    <li> <%= selectedItem.city %></li>
+                    <li> <%= selectedItem.phonenumber %></li>
+                    <li> <%= selectedItem.email %></li>
+                </ul>  
+            </div>
+            <%- include('./partials/carousel') %>
         <% } else { %>
             <p>Selecteer een persoon om details weer te geven.</p>
         <% } %>
     </section>
 </div>
+
 <%- include('./partials/food') %>

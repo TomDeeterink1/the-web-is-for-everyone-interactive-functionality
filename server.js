@@ -36,29 +36,6 @@ app.get('/', function (request, response) {
   response.render('index', data)
 })
 
-// Maak een GET route voor de index
-app.get('/familyoverview/', function (request, response) {
-  fetchJson(`https://fdnd-agency.directus.app/items/oba_profile`)
-        .then((items) => {
-            response.render('familyoverview', { items: items.data ,  selectedItem: items.data});
-        })
-  
-})
-
-// POST route 
-app.post('/familyoverview/', function (request, response) {
-  const itemId = request.body.carousel; // De ID van de geselecteerde persoon ophalen vanuit het formulier
-  fetchJson(`https://fdnd-agency.directus.app/items/oba_profile/${itemId}`)
-      .then((item) => {
-          fetchJson(`https://fdnd-agency.directus.app/items/oba_profile`) // Fetch alle items opnieuw
-          .then((items) => {
-              response.render('familyoverview', { 
-                  items: items.data,
-                  selectedItem: item.data // De geselecteerde persoon data doorsturen naar de sjabloon
-              });
-          })
-      })
-});
 
 const favorieten = [];
 
@@ -84,6 +61,30 @@ app.post('/detail/:id', function (request, response) {
         })
 });
 
+// Maak een GET route voor de family overview
+app.get('/familyoverview/', function (request, response) {
+  fetchJson(`https://fdnd-agency.directus.app/items/oba_profile`)
+        .then((items) => {
+            response.render('familyoverview', { items: items.data ,  selectedItem: items.data});
+        })
+  
+})
+
+// POST route 
+app.post('/familyoverview/', function (request, response) {
+  const itemId = request.body.carousel; // De ID van de geselecteerde persoon ophalen vanuit het formulier
+  fetchJson(`https://fdnd-agency.directus.app/items/oba_profile/${itemId}`)
+      .then((item) => {
+          fetchJson(`https://fdnd-agency.directus.app/items/oba_profile`) // Fetch alle items opnieuw
+          .then((items) => {
+              response.render('familyoverview', { 
+                  items: items.data,
+                  selectedItem: item.data, // De geselecteerde persoon data doorsturen naar de sjabloon
+                  favorieten: favorieten
+              });
+          })
+      })
+});
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)
