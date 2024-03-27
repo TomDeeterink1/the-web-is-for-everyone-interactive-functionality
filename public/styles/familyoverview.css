@@ -7,6 +7,19 @@
     scroll-snap-align: left;
     & .family-overview--intro{
 
+        & #goback{
+            text-decoration: none;
+            color: var(--primary); 
+
+            &:hover{
+                color: var(--primary-color);
+            }
+        }
+
+        & h1{
+            padding-top: var(--large);
+        }
+
         & h3{
             margin-top: var(--medium);
         }
@@ -15,6 +28,7 @@
             display: flex;
             gap: var(--medium);
             padding-top: var(--large);
+            overflow: auto;
 
                 & button{
                     padding: var(--medium);

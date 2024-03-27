@@ -6,8 +6,9 @@
     padding-left: var(--extra-large);
     max-width: 1400px;
     margin: 0 auto;
-    scroll-snap-type: proximity;
-    scroll-snap-align: left;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
     
     & .carousel{
         list-style: none;
@@ -26,6 +27,7 @@
             border-radius: var(--small);
             box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
             transition: ease-out 0.1s;
+            scroll-snap-align: center;
 
             &:hover{
                 box-shadow: 2px 2px 2px rgba(238, 7, 7, 1);
