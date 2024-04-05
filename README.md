@@ -1,33 +1,25 @@
 > _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
 # Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
-
-## Inhoudsopgave
-
-  * [Beschrijving](#beschrijving)
-  * [Gebruik](#gebruik)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+OBA overview page + family page
 
 ## Beschrijving
-<!-- In de Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+Een nieuw design voor oba, waar gebruikers makkelijk doorheen kunnen navigeren.
 
 ## Gebruik
-<!--Bij Gebruik staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
+Met dit project kan je makkelijk aan de slag, de code is te begrijpen en de css is vrij compact.
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
+css voor verschillende pagina's en componenten zijn apart geschreven, hierdoor hoef je niet eindeloos te scrollen.
 
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+
+Maak een kopie vand de repo, zorg er wel voor dat de npm install gedaan is.
 
 
-## Bronnen
+## Kenmerken progressive enhancemend
+
+Progressive enhancement in web development draait om het bouwen van websites die werken voor iedereen, ongeacht hun browser of apparaat. Het begint met een solide basis van eenvoudige HTML en voegt dan geleidelijk extra functionaliteit toe met CSS en JavaScript. Het doel is om een goede gebruikerservaring te bieden voor alle gebruikers, ongeacht hun technologie. Dit maakt websites veerkrachtiger en inclusiever voor een breder publiek.
 
 ## Licentie
 
